@@ -2,10 +2,7 @@ package com.danceva.libraryspring;
 
 import com.danceva.libraryspring.dao.BookService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
@@ -23,8 +20,9 @@ public class BooksController {
     }
 
     @PostMapping("/books/new_book")
-    public void addBook(){
-
+    public void addBook(@RequestBody String name,
+                        @RequestBody String content){
+        bookService.addBook(name, content);
     }
 
 }
