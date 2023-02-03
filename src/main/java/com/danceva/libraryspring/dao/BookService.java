@@ -11,11 +11,12 @@ public class BookService {
     private final BooksRepository booksRepository;
 
     public String getAllBooks(){
+        System.out.println(booksRepository.getBooks().toString());
         return booksRepository.getBooks().toString();
     }
 
     public String getBook(String book){
-        return booksRepository.getBooks().stream().filter(book1 -> book1.getName().equals(book)).findFirst().toString();
+        return booksRepository.getBooks().stream().filter(book1 -> book1.getName().equals(book)).findFirst().get().getContent();
     }
 
 }
