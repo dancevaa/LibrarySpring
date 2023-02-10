@@ -1,16 +1,14 @@
 package com.danceva.libraryspring.dao;
 
-import com.danceva.libraryspring.BooksRepository;
-import com.danceva.libraryspring.models.Book;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import org.springframework.stereotype.Service;
 
-import java.security.SecureRandom;
+import com.danceva.libraryspring.models.Book;
+import com.danceva.libraryspring.repository.BooksRepository;
+
+import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-@Data
 public class BookService {
     private final BooksRepository booksRepository;
 
@@ -22,8 +20,8 @@ public class BookService {
         return booksRepository.getBooks().stream().filter(book1 -> book1.getName().equals(book)).findFirst().get().getContent();
     }
 
-    public void addBook(String name, String content){
-        booksRepository.getBooks().add(new Book(name, content));
+    public void addBook(Book book){
+        booksRepository.getBooks().add(book);
     }
 
 }

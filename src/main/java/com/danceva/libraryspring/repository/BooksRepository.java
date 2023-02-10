@@ -1,12 +1,14 @@
-package com.danceva.libraryspring;
-
-import com.danceva.libraryspring.models.Book;
-import lombok.Data;
-import org.springframework.stereotype.Repository;
+package com.danceva.libraryspring.repository;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.danceva.libraryspring.models.Book;
+
+import lombok.Data;
 
 @Repository
 @Data

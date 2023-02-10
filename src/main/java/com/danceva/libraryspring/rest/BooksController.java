@@ -1,10 +1,13 @@
-package com.danceva.libraryspring;
+package com.danceva.libraryspring.rest;
 
-import com.danceva.libraryspring.dao.BookService;
-import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+import com.danceva.libraryspring.dao.BookService;
+import com.danceva.libraryspring.models.Book;
+
+import lombok.AllArgsConstructor;
+
+@RestController("/v1")
 @AllArgsConstructor
 public class BooksController {
 
@@ -20,9 +23,8 @@ public class BooksController {
     }
 
     @PostMapping("/books/new_book")
-    public void addBook(@RequestBody String name,
-                        @RequestBody String content){
-        bookService.addBook(name, content);
+    public void addBook(@RequestBody Book book){
+        bookService.addBook(book);
     }
 
 }
